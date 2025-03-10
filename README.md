@@ -1,14 +1,21 @@
 The Rainmeter plugin for Jellyfin Music
 
 ## Install
-* Place JellyfinNowPlaying.dll in  C:\Program Files\Rainmeter\Plugins
-* Newtonsoft.Json.dll required in C:\Program Files\Rainmeter\
+### **Rainmeter Skin** (recommended)
+1. Install rmskin.
+2. Download Newtonsoft.Json.dll
+3. Place Newtonsoft.Json.dll in C:\Program Files\Rainmeter
+4. **BEFORE** loading skins <u>**Add Server URL** to variables.ini in JellyfinNowPlaying/@resources</u>
+<br>**_Skin will crash Rainmeter if Server Url not working_**
 
-*Skin installer will be available later*
+### **DLL files only**
+1. Download zip
+2. Place correct version of JellyfinNowPlaying.dll in C:\Program Files\Rainmeter\Plugins
+3. Place Newtonsoft.Json.dll in C:\Program Files\Rainmeter
+
 ## Setup
-**API Key from Jellyfin required** <br>
-Check [Example Skin](https://github.com/AshleyDeo/JellyfinNowPlaying/tree/main/ExampleSkin) --
-(*If you use skin, BEWARE **<u>skin crashes rainmeter if server is not valid</u>**. Set server info in varibles.ini before loading*)
+**API Key from Jellyfin required**
+<br> Check if working by going to `YOUR_SERVER_URL/Sessions?ApiKey=YOUR_API_KEY`
 
 ```
 [Variables]
@@ -64,9 +71,17 @@ Measure Types are:<br>
 ## Not working
  *Jellyfin Api remote controls not working (yet?)*
 * `SupportsRemoteControl` ^: 0 or 1 if the current media supports remote media control buttons.
-* Play/Pause/other Media controls:. Bangs for basic Windows Media controls work if client supports it
+* Play/Pause/other Media controls: Bangs for basic Windows Media controls work if client supports it
 * Artist Backdrop/Logo: downloads but loading into skin crashes
 * Skin crashes rainmeter if server is not valid
 * Strings return 0 if null
 
-*Based monstercat visualizer and WebNowPlayingRedux skins*
+## Fixes
+Rainmeter freezes
+1. Close using Task Manager
+2. Open Rainmeter.ini in C:\Program Files\Rainmeter
+3. Set `Active=0` under [JellyfinNowPlaying\Cover] and [JellyfinNowPlaying\Dashboard]
+4. Check if variables.ini or anywhere where your server URL is correct
+
+
+*Based monstercat-visualizer and WebNowPlayingRedux skins*
