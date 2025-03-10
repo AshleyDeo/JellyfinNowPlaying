@@ -1,10 +1,14 @@
 The Rainmeter plugin for Jellyfin Music
 
 ## Install
-* Install correct version of JellyfinNowPlaying
+* Place JellyfinNowPlaying.dll in  C:\Program Files\Rainmeter\Plugins
 * Newtonsoft.Json.dll required in C:\Program Files\Rainmeter\
+
+*Skin installer will be available later*
 ## Setup
-**API Key from Jellyfin required**
+**API Key from Jellyfin required** <br>
+Check [Example Skin](https://github.com/AshleyDeo/JellyfinNowPlaying/tree/main/ExampleSkin) --
+(*If you use skin, BEWARE **<u>skin crashes rainmeter if server is not valid</u>**. Set server info in varibles.ini before loading*)
 
 ```
 [Variables]
@@ -31,7 +35,8 @@ Type=Position
 UpdateDivider=5
 ```
 
-Measure Types are:
+Measure Types are:<br>
+^ : Depends on if client reports to server
 
 - `Status`: 0 for inactive and 1 for active.
 - `Player`: Player Name (Jellyfin Web, Finamp, Feishin...)
@@ -51,16 +56,17 @@ Measure Types are:
 - `Remaining`: Remaining time of track formatted into HH:MM:SS string
 - `RemainingSeconds`: Remaining time of track in seconds.
 - `Progress`: Percentage of track completed.
-- `Volume`: From 0 to 100 ^
+- `Volume`^: From 0 to 100
 - `State` ^: 0 for stopped, 1 for playing, and 2 for paused
 - `Rating` ^: Favorite
-- `Repeat`: 0 if repeat/loop track is off, 1 if repeating one track, 2 if repeating all.
+- `Repeat`^: 0 if repeat/loop track is off, 1 if repeating one track, 2 if repeating all.
 - `Shuffle` ^: 0 if shuffle is off, 1 if on.
-^ : Depends on if client reports to server
 ## Not working
  *Jellyfin Api remote controls not working (yet?)*
 * `SupportsRemoteControl` ^: 0 or 1 if the current media supports remote media control buttons.
 * Play/Pause/other Media controls:. Bangs for basic Windows Media controls work if client supports it
 * Artist Backdrop/Logo: downloads but loading into skin crashes
+* Skin crashes rainmeter if server is not valid
+* Strings return 0 if null
 
-*Uses monstercat visualizer skins*
+*Based monstercat visualizer and WebNowPlayingRedux skins*
